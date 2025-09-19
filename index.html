@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoang's Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 1. "Skip to Main Content" Link Styling */
+        /* This link is hidden by default and only appears when focused (e.g., by tabbing) */
+        .skip-link {
+            position: absolute;
+            top: -100px; /* Hides the link off-screen */
+            left: 0;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 25px;
+            z-index: 1000;
+            transition: top 0.3s ease-in-out;
+            border-bottom-right-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* The :focus pseudo-class makes the link visible when it's selected via keyboard */
+        .skip-link:focus {
+            top: 0; /* Brings the link into view */
+        }
+
+        /* 2 & 5. Attractive Navigation using Flexbox */
+        nav {
+            /* Flex property applied to the parent <nav> */
+            display: flex;
+            justify-content: space-between; /* Pushes logo and links to opposite ends */
+            align-items: center;
+            padding: 1rem 2rem;
+            
+            /* Additional styling for an attractive look */
+            background-color: #ffffff; /* Property 1 */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Property 2 */
+            border-bottom: 3px solid #3498db; /* Property 3 */
+        }
+
+        nav ul {
+            display: flex; /* Makes list items sit side-by-side */
+            gap: 2rem;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: color 0.3s ease, background-color 0.3s ease; /* Transition for hover */
+        }
+
+        /* 3. Image Styling using the Box Model (for the logo) */
+        nav img {
+            height: 50px;
+            width: auto;
+            /* Box model properties */
+            border: 3px solid #3498db;
+            padding: 5px;
+            border-radius: 50%; /* Makes the logo circular */
+        }
+        
+        /* 6. Hover Pseudo-class with an interesting transition */
+        nav a:hover {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+
+        /* Main Content Area */
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Introduction Section */
+        .Introduction h1 {
+            font-family: 'Cookie', cursive; /* Using the new font */
+            font-size: 5rem;
+            color: #2c3e50;
+            margin-bottom: 0;
+            line-height: 1;
+        }
+        
+        .Introduction p {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 3rem;
+            color: #7f8c8d;
+        }
+        
+        /* 4. Grid Property Application */
+        /* The grid property is applied to this parent container */
+        .gallery-grid {
+            display: grid;
+            /* Creates a responsive grid with at least 2 columns */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* 3. Image Styling using the Box Model (for the gallery) */
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+
+            /* Box model properties */
+            padding: 10px;                  
+            border: 5px solid #ecf0f1;      
+            border-radius: 25px;            
+
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            box-sizing: border-box; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-grid img:hover {
+             transform: translateY(-8px) scale(1.02);
+             box-shadow: 0 15px 25px rgba(0,0,0,0.12);
+        }
+
+        /* 7. The :nth-child selector */
+        /* This rule selects every second (even) image in the grid */
+        .gallery-grid img:nth-child(even) {
+            border-radius: 150px 20px 150px 20px; /* A more unique shape */
+            border-color: #e74c3c; /* And gives them a different border color */
+        }
+        
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 1. Skip Link (Visible on focus) -->
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+    <!-- NAV bar (2 & 5. Styled with Flexbox) -->
+    <nav>
+        <!-- Logo Image (3. Styled with Box Model) -->
+        <img src="https://placehold.co/100x100/3498db/ffffff?text=H" alt="Hoang's Logo">
+        <ul>
+            <!-- Nav Links (6. Styled with Hover) -->
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Note</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Intro -->
+        <div class="Introduction">
+            <h1>I'm Hoang</h1>
+            <p>A web designer</p>
+        </div>
+
+        <!-- 4. Grid container -->
+        <div class="gallery-grid">
+            <!-- Images (3. Styled with Box Model) -->
+            <!-- Images (7. nth-child styles every other image) -->
+            <img src="https://placehold.co/400x300/3498db/ffffff?text=Project+1" alt="Placeholder image 1">
+            <img src="https://placehold.co/400x300/e74c3c/ffffff?text=Project+2" alt="Placeholder image 2">
+            <img src="https://placehold.co/400x300/2ecc71/ffffff?text=Project+3" alt="Placeholder image 3">
+            <img src="https://placehold.co/400x300/f1c40f/ffffff?text=Project+4" alt="Placeholder image 4">
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Hoang's Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
